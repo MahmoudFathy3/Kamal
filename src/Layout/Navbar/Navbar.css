@@ -1,0 +1,51 @@
+nav{
+  background-color: #333;
+}
+
+nav .Navbar-Wapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .Navbar-Wapper h3{
+  color: #EEE;
+}
+nav .Navbar-Wapper ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav .Navbar-Wapper ul li {
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+nav .Navbar-Wapper ul li::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color:  var(--Color-Primary);
+  width: 0;
+  height: 10%;
+  transition: .3s;
+  z-index: -1;
+}
+nav .Navbar-Wapper ul li:hover::before{
+  width: 100%;
+}
+
+nav .Navbar-Wapper ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.Cart{
+  color: var(--Color-Primary);
+  font-size: 20px;
+}

@@ -1,0 +1,57 @@
+.Slider{
+  flex: 1;
+  height: fit-content;
+  background-color: white;
+  border: 1px solid #EEE;
+  border-radius: 10px;
+}
+
+.Slider .Slider-Logo{
+  background-color: var(--Color-secondary);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  user-select: none;
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+.Slider .Slider-Category {
+  padding: 5px;
+}
+
+.Slider .Slider-Category .icon {
+  padding-right: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #555;
+}
+
+.Slider .Slider-Category span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #555;
+  user-select: none;
+}
+
+.Slider .Slider-Category ul {
+  list-style: none;
+  margin-top: 5px;
+  padding: 0px; 
+}
+
+.Slider .Slider-Category ul li {
+  padding: 8px;
+  padding-left: 10px;
+  font-size: 15px;
+  position: relative;
+  border-radius: 5px;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.Slider .Slider-Category ul li:hover {
+  background-color: var(--Color-secondary);
+  padding-left: 18px;
+  color: white;
+}

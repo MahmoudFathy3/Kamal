@@ -1,0 +1,88 @@
+.Carts{
+  padding-top: 50px;
+}
+
+.Carts .cart-list {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+.Carts .cart-list .cart-image{
+  flex: 2.5;
+  background-color: white;
+  border-radius: 30px
+}
+
+.Carts .cart-list img {
+  width: 100%;
+  height: 200px;
+  border-radius: 30px
+}
+
+.Carts .cart-list .cart-info {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Carts .cart-list .cart-info h3 {
+  font-weight: bold;
+}
+
+.Carts .cart-list .cart-info p {
+  color: #555;
+  line-height: 1.6
+}
+
+.Carts .cart-list .cart-info .cart-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Carts .cart-list .cart-info .cart-btn button {
+  padding: 10px 15px;
+  background-color: brown;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.Carts .cart-list .cart-info .cart-btn button:hover {
+  opacity: 0.76;
+}
+
+.cart-total{
+  background-color: var(--Color-Primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.cart-total .total-price h3{
+  font-weight: bold;
+  color: #DDD;
+  user-select: none;
+}
+
+.cart-total  button {
+  padding: 10px 15px;
+  background-color: var(--Color-secondary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.cart-total  button:hover {
+  opacity: 0.76;
+}

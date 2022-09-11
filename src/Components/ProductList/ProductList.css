@@ -1,0 +1,58 @@
+.product{
+  flex: 3;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product .product-wapper {
+  flex: calc(100% / 3 - 15px);
+  height: 331px;
+  background-color: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #EEE;
+  border-radius: 10px;
+  position: relative;
+}
+
+.product .product-wapper img{
+  width: 100%;
+  height: 200px;
+}
+
+.product .product-wapper .info {
+  border-top: 1px solid #DDD;
+  padding-top: 10px;
+}
+
+.product .product-wapper .info :is(.title,.Price){
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.product .product-wapper .info .info-wapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.product .product-wapper .info .info-wapper button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--Color-Primary);
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.product .product-wapper .info .info-wapper button:hover{
+  background-color: var(--Color-secondary)
+}
