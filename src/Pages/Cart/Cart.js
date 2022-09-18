@@ -9,11 +9,9 @@ const Cart = ({FooterHandler}) => {
 
   useEffect(() => {
     FooterHandler()
-  }, [FooterHandler, dispatch])
+    dispatch(getTotal())
+  }, [FooterHandler, dispatch, Cart])
   
-  useMemo(() => {
-    return dispatch(getTotal())
-  }, [dispatch])
 
 
   if (!Cart.length) {
@@ -22,16 +20,6 @@ const Cart = ({FooterHandler}) => {
         The Cart is empty
       </h3>
     );
-  }
-
-  const decreaseHandler = (item) => {
-    dispatch(decreaseCart(item))
-    dispatch(getTotal())
-  }
-
-  const increasedHandler = (item) => {
-    dispatch(addCart(item))
-    dispatch(getTotal())
   }
 
   const List = Cart?.map((item) => {
@@ -44,9 +32,9 @@ const Cart = ({FooterHandler}) => {
           <td><p>{item.description}</p></td>
           <td>
             <div className="quantity">
-              <button onClick={() => decreaseHandler(item)}>-</button>
+              <button onClick={() => dispatch(decreaseCart(item))}>-</button>
               <p>{item.cartQuantity}</p>
-              <button onClick={() => increasedHandler(item)}>+</button>
+              <button onClick={() => dispatch(addCart(item))}>+</button>
             </div>
           </td>
           <td>${Price.toFixed(2)} </td>
