@@ -1,32 +1,32 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import About from "./Pages/About/About";
-import Contact from "./Pages/Contact/Contact";
-import Navbar from "./Layout/Navbar/Navbar";
-import Footer from "./Layout/Footer/Footer";
+import React,{useState, useEffect,useMemo} from "react";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import {getProducts } from "./Store/Products/Products";
-import Cart from "./Pages/Cart/Cart";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Navigation from "./Navigation/Navigation";
+
 
 const App = () => {
+  const [hidden, setHidden] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts())
+    setHidden(true)
+  },[])
+
+  useMemo(() => {
+    return dispatch(getProducts())
   },[dispatch])
 
+  const FooterHandler = () => {
+    setHidden(false);
+  }
+  console.log(hidden);
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="cart" element={<Cart />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <>
+      <ToastContainer />
+      <Navigation FooterHandler={FooterHandler} hidden={hidden} />
+    </>
   );
 };
 export default App;

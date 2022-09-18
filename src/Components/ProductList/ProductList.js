@@ -1,12 +1,17 @@
+import React from "react";
 import "./ProductList.css";
 import { addCart } from "../../Store/Cart/Cart";
 import {useDispatch} from "react-redux";
 
 const ProductList = ({ Products }) => {
-
   const dispatch = useDispatch();
 
+  const cartHandler = (item) => {
+    dispatch(addCart(item))
+  }
+
   return (
+    <>
     <div className="product">
       {Products.map((item) => {
         return (
@@ -20,13 +25,14 @@ const ProductList = ({ Products }) => {
                 <div className="Price">
                   <span>${item.price.toFixed(2)}</span>
                 </div>
-                <button onClick={() => dispatch(addCart(item))}>Add to Cart</button>
+                <button onClick={() => cartHandler(item)}>Add to Cart</button>
               </div>
             </div>
           </div>
         );
       })}
-    </div>
+      </div>
+    </>
   );
 };
 

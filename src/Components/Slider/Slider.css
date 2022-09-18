@@ -38,6 +38,7 @@
   list-style: none;
   margin-top: 5px;
   padding: 0px; 
+
 }
 
 .Slider .Slider-Category ul li {
@@ -53,5 +54,12 @@
 .Slider .Slider-Category ul li:hover {
   background-color: var(--Color-secondary);
   padding-left: 18px;
+  color: white;
+}
+
+
+.Slider .Slider-Category ul li.active{
+  background-color: var(--Color-Primary);
+  padding-left: 10px;
   color: white;
 }

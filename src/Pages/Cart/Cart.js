@@ -1,13 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useMemo} from "react";
 import "./Cart.css";
 import { useSelector , useDispatch} from "react-redux";
-import { removeCart } from "../../Store/Cart/Cart";
+import { removeCart, decreaseCart, addCart, getTotal } from "../../Store/Cart/Cart";
 
-const Cart = () => {
-
-  const { Cart } = useSelector((state) => state.Cart);
+const Cart = ({FooterHandler}) => {
+  const { Cart, cartTotalAmount} = useSelector((state) => state.Cart);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    FooterHandler()
+  }, [FooterHandler, dispatch])
+  
+  useMemo(() => {
+    return dispatch(getTotal())
+  }, [dispatch])
 
 
   if (!Cart.length) {
@@ -18,38 +24,50 @@ const Cart = () => {
     );
   }
 
-  let total = 0;
-  
-  const List = Cart.map((item) => {
-    total += Number(item.price)
+  const List = Cart?.map((item) => {
+    let Price = item.price * item.cartQuantity;
     return (
-      <div key={item.id} className="cart-list">
-        <div className="cart-image">
-          <img src={item.image} alt={item.image} />
-        </div>
-        <div className="cart-info">
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-          <span>${item.price.toFixed(2)}</span>
-          <div className="cart-btn">
-            <button onClick={() => dispatch(removeCart(item.id))}>Remove</button>
-          </div>
-        </div>
-      </div>
+      <tbody key={item.id}>
+        <tr>
+          <td><img src={item.image} alt={item.image} /></td>
+          <td>{item.title}</td>
+          <td>{item.description}</td>
+          <td>
+            <div className="quantity">
+              <button onClick={() => dispatch(decreaseCart(item))}>-</button>
+              <p>{item.cartQuantity}</p>
+              <button onClick={() => dispatch(addCart(item))}>+</button>
+            </div>
+          </td>
+          <td>${Price.toFixed(2)} </td>
+          <td><button className="remove" onClick={() => dispatch(removeCart(item.id))}>Remove</button></td>
+        </tr>
+      </tbody>
     );
   });
   
-
-
   return (
     <div className="Carts">
-      <div className="container">
-        {List}
+      <div className="cart-Wapper">
+        <div className="cart-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+              {List}
+          </table>
+        </div>
         <div className="cart-total">
-          <div className="total-price">
-            <h3>Total: <span>{total && `$${total}`}</span></h3>
+          <div className="total-wapper">
+            ${cartTotalAmount}
           </div>
-          <button>Checkout</button>
         </div>
       </div>
     </div>
