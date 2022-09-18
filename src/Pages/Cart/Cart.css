@@ -10,7 +10,7 @@
 }
 
 .Carts .cart-Wapper .cart-list{
-  width: 70%;
+  width: 75%;
 }
 
 .Carts .cart-Wapper .cart-list table {
@@ -25,7 +25,9 @@
   text-align: center;
   color: #333;
 }
-
+.Carts .cart-Wapper .cart-list table td :is(span,p) {
+  font-size: 14px;
+}
 .Carts .cart-Wapper .cart-list table td img {
   width: 100px;
   height: 100px;
@@ -70,11 +72,42 @@
 .Carts .cart-Wapper .cart-total {
   position: fixed;
   right: 10px;
-  width: calc(30% - 10px);
-  text-align: center;
+  width: calc(20% - 10px);
 }
 
 .Carts .cart-Wapper .cart-total .total-wapper{
   width: 100%;
-  background: green;
+  background: var(--Color-Primary);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.Carts .cart-Wapper .cart-total .total-wapper :is(.total, .quantity) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.Carts .cart-Wapper .cart-total .total-wapper :is(.total, .quantity) span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.Carts .cart-Wapper .cart-total .total-wapper button {
+  padding: 10px 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: var(--Color-secondary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.Carts .cart-Wapper .cart-total .total-wapper button:hover {
+  opacity: 0.75;
 }

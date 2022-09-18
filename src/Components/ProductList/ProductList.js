@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductList.css";
-import { addCart } from "../../Store/Cart/Cart";
+import { addCart ,getTotal} from "../../Store/Cart/Cart";
 import {useDispatch} from "react-redux";
 
 const ProductList = ({ Products }) => {

@@ -4,7 +4,7 @@ import { useSelector , useDispatch} from "react-redux";
 import { removeCart, decreaseCart, addCart, getTotal } from "../../Store/Cart/Cart";
 
 const Cart = ({FooterHandler}) => {
-  const { Cart, cartTotalAmount} = useSelector((state) => state.Cart);
+  const { Cart, cartTotalAmount, cartTotalQuantity} = useSelector((state) => state.Cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,19 +24,29 @@ const Cart = ({FooterHandler}) => {
     );
   }
 
+  const decreaseHandler = (item) => {
+    dispatch(decreaseCart(item))
+    dispatch(getTotal())
+  }
+
+  const increasedHandler = (item) => {
+    dispatch(addCart(item))
+    dispatch(getTotal())
+  }
+
   const List = Cart?.map((item) => {
     let Price = item.price * item.cartQuantity;
     return (
       <tbody key={item.id}>
         <tr>
           <td><img src={item.image} alt={item.image} /></td>
-          <td>{item.title}</td>
-          <td>{item.description}</td>
+          <td><span>{item.title}</span></td>
+          <td><p>{item.description}</p></td>
           <td>
             <div className="quantity">
-              <button onClick={() => dispatch(decreaseCart(item))}>-</button>
+              <button onClick={() => decreaseHandler(item)}>-</button>
               <p>{item.cartQuantity}</p>
-              <button onClick={() => dispatch(addCart(item))}>+</button>
+              <button onClick={() => increasedHandler(item)}>+</button>
             </div>
           </td>
           <td>${Price.toFixed(2)} </td>
@@ -66,7 +76,15 @@ const Cart = ({FooterHandler}) => {
         </div>
         <div className="cart-total">
           <div className="total-wapper">
-            ${cartTotalAmount}
+            <div className="quantity">
+            <span>Quantity: </span>
+            <span>{cartTotalQuantity}</span>
+            </div>
+            <div className="total">
+              <span>Total: </span>
+              <span>${cartTotalAmount}</span>
+            </div>
+            <button>Check out</button>
           </div>
         </div>
       </div>
