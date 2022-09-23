@@ -13,9 +13,9 @@ const Navigation = ({FooterHandler, hidden}) => {
     <BrowserRouter>
       <Navbar />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
+      <Route path="/" element={<Home FooterHandler={FooterHandler}/>} />
+      <Route path="about" element={<About FooterHandler={FooterHandler}/>} />
+      <Route path="contact" element={<Contact FooterHandler={FooterHandler}/>} />
       <Route path="cart" element={<Cart FooterHandler={FooterHandler} />} />
       <Route path="not-found" element={<Found />} />
     </Routes>

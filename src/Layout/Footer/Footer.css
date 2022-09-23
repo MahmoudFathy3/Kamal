@@ -1,0 +1,49 @@
+.Footer{
+  background-color: #333;
+}
+
+.Footer .footer-wapper{
+  display: flex;
+  padding: 50px;
+}
+
+.Footer .footer-wapper .left {
+  width: 40%;
+}
+
+.Footer .footer-wapper .left p {
+  color: #DDD;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  user-select: none;
+}
+.Footer .footer-wapper .left .icon {
+  margin-left: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Footer .footer-wapper .right {
+  width: 60%;
+}
+
+.Footer .footer-wapper .right ul {
+  list-style: none;
+}
+
+.Footer .footer-wapper .right ul li {
+  padding: 10px;
+}
+
+.Footer .footer-wapper .right ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.Footer .footer-wapper .right ul li a:hover {
+  color: var(--Color-Primary);
+}

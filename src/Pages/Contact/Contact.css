@@ -1,0 +1,74 @@
+.contact{
+  width: 500px;
+  margin: 76.5px auto;
+  background-color: var(--Color-Primary);
+  border-radius: 10px;
+  padding: 10px;
+}
+.contact p {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.contact .contact-info {
+  padding-top: 20px;
+}
+
+.contact .contact-info form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.contact .contact-info form :is(.Name,.Email,textarea,input[type="submit"]) {
+  width: 100%;
+  margin: 4px;
+}
+.contact .contact-info form .Name input {
+  width: calc(50% - 3px);
+}
+.contact .contact-info form .Name input:first-of-type{
+  margin-right: 4px;
+}
+.contact .contact-info form .Email input {
+  width: 100%;
+}
+
+.contact .contact-info form :is(.Name,.Email) input{
+  padding:  10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.contact .contact-info form textarea {
+  padding: 10px;
+  height: 150px;
+  resize: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.contact .contact-info form :is(.Name input,.Email input,textarea):focus {
+  outline: 3px solid var(--Color-secondary);
+}
+
+.contact .contact-info form :is(.Name input,.Email input,textarea):focus::placeholder{
+  opacity: 0;
+}
+
+.contact .contact-info form input[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--Color-secondary);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.contact .contact-info form input[type="submit"]:hover {
+  opacity: 0.76;
+}

@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from "react";
+import React, {useEffect} from "react";
 import "./Cart.css";
 import { useSelector , useDispatch} from "react-redux";
 import { removeCart, decreaseCart, addCart, getTotal } from "../../Store/Cart/Cart";
@@ -8,7 +8,7 @@ const Cart = ({FooterHandler}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    FooterHandler()
+    FooterHandler(false)
     dispatch(getTotal())
   }, [FooterHandler, dispatch, Cart])
   
@@ -24,6 +24,7 @@ const Cart = ({FooterHandler}) => {
 
   const List = Cart?.map((item) => {
     let Price = item.price * item.cartQuantity;
+    
     return (
       <tbody key={item.id}>
         <tr>

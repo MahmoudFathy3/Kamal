@@ -16,7 +16,7 @@ const ProductList = ({ Products }) => {
       {Products.map((item) => {
         return (
           <div className="product-wapper" key={item.id}>
-            <img src={item.image} alt={item.image} />
+            <img src={item.image} alt="" />
             <div className="info">
               <div className="title">
                 <span>{item.title.slice(0, 55)}</span>

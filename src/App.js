@@ -18,10 +18,10 @@ const App = () => {
     return dispatch(getProducts())
   },[dispatch])
 
-  const FooterHandler = () => {
-    setHidden(false);
+  const FooterHandler = (isFooter) => {
+    setHidden(isFooter);
   }
-  console.log(hidden);
+  
   return (
     <>
       <ToastContainer />

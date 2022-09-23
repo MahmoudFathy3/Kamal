@@ -5,6 +5,7 @@
 }
 
 .product .product-wapper {
+  width: calc(100% - 10px);
   height: 331px;
   background-color: white;
   margin-left: 10px;

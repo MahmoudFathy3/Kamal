@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import  {filterCategory}  from "../../Store/Products/Products";
 import { useDispatch } from "react-redux";
+import Carousel from "../Carousel/Carousel";
 
-const Slider = () => {
+const Slider = ({Products}) => {
   const [active,setActive]= useState('All')
   const dispatch = useDispatch();
 
@@ -35,6 +36,8 @@ const Slider = () => {
           <li className={active === "Women's Clothing" ? 'active': null} onClick={FilterHandler}>Women's Clothing</li>
         </ul>
       </div>
+      <Carousel Products={Products} number={1} space={0}/>
+      
     </div>
   );  
 };
